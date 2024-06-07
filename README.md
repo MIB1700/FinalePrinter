@@ -3,11 +3,11 @@
 Module providing a function for printing finale music files to pdf via a virtual pdf printer
 PDFWriter - in this case -  on OSX!! This will ONLY WORK ON OSX!! Uses apple script to fascilitate the printing!
 
-##You need:
-    a copy of the Finale MusicMaker app (https://www.finalemusic.com)..
+## You need:
+    a copy of the Finale MusicMaker app (https://www.finalemusic.com)
     installed PDFWriter (https://github.com/rodyager/RWTS-PDFwriter)
 
-##HOW TO:
+## HOW TO:
     1. **cd** into the directory where you want to start the search for finale files
         the script will search all files and folder starting from this location
         the script will only process *.mus, .MUS, .bak, and .BAK files*
@@ -27,7 +27,7 @@ PDFWriter - in this case -  on OSX!! This will ONLY WORK ON OSX!! Uses apple scr
         the pdf files will be saved where the original file is located!!
         the original file will be left in place
 
-##Caveats:
+## Caveats:
     this script opens - and keeps open - all finale files
         this could mean that there might be memory issues if you have an ungodly amount of files
         in that case quit, and restart the script and finale... since only files that don't have pdfs already will be converted we don't
