@@ -3,7 +3,8 @@
 Module providing a function for printing finale music files to pdf via a virtual pdf printer
 PDFWriter - in this case -  on OSX!! This will ONLY WORK ON OSX!! Uses apple script to fascilitate the printing!
 
-This will search through all folders and files for finale files, starting at the designated path. All
+This will search through all folders and files for finale files, starting at the designated path. All .mus .musx and .bak
+files will be opened in finale and printed to pdf.
 
 
 
