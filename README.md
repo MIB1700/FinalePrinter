@@ -3,6 +3,10 @@
 Module providing a function for printing finale music files to pdf via a virtual pdf printer
 PDFWriter - in this case -  on OSX!! This will ONLY WORK ON OSX!! Uses apple script to fascilitate the printing!
 
+This will search through all folders and files for finale files, starting at the designated path. All
+
+
+
 ## You need:
     a copy of the Finale MusicMaker app (https://www.finalemusic.com)
     installed PDFWriter (https://github.com/rodyager/RWTS-PDFwriter)
@@ -39,6 +43,8 @@ PDFWriter - in this case -  on OSX!! This will ONLY WORK ON OSX!! Uses apple scr
         remove the # from:
         # close front document
 
-        **on line 78**
+        **on line 85**
 
     the script assumes a default location for the PDFWriter output as "~/Documents/PDFwriter/"
+
+    script does not check if finale is open! it will fale if it is not running!

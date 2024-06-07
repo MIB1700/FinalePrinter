@@ -37,7 +37,7 @@ Caveats:
         remove the # from:
         # close front document
 
-        on line 78
+        on line 85
 
     the script assumes a default location for the PDFWriter output as "~/Documents/PDFwriter/"
 
@@ -47,6 +47,7 @@ import os
 import subprocess
 import sys
 from pathlib import Path
+import re
 
 
 def find_mus_files(root_folder):
@@ -54,7 +55,13 @@ def find_mus_files(root_folder):
     Recursively find all .mus files in the given root folder.
     """
     # return [str(p) for p in Path(root_folder).rglob("*.mus")]
-    mus_files = [str(p) for p in Path(root_folder).rglob("*.[mM][uU][sS]")]
+    # mus_files = [str(p) for p in Path(root_folder).rglob("*.[mM][uU][sS](?:[xX])?")]
+
+    # Compile a regular expression pattern for case-insensitive matching of file extensions
+    pattern = re.compile(r"\.musx?$", re.IGNORECASE)
+
+    # Find all files matching the pattern
+    mus_files = [str(p) for p in Path(root_folder).rglob("*") if pattern.search(p.name)]
     bak_files = [str(p) for p in Path(root_folder).rglob("*.[bB][aA][kK]")]
 
     return mus_files + bak_files
@@ -120,7 +127,7 @@ def main(root_folder):
             print("\n\nContinuing...\n\n")
             # Process the files further or perform other actions
         else:
-            print("Exiting...\n\n Have a nice day!")
+            print("\n\nExiting...\n\n Have a nice day!")
             sys.exit(1)
     else:
         print("No files found.")
@@ -165,6 +172,8 @@ if __name__ == "__main__":
 
     # Convert the root_folder to a Path object
     root_folder = Path(root_folder)
+
+    print(f"\n\nroot folder: {root_folder}\n\n")
 
     # Call the main function with the specified root_folder
     main(root_folder)
